@@ -9,4 +9,6 @@ app.use('/*', ((req, res) => {
 }));
 
 
+app.use(express.static(path.resolve(__dirname, 'uploads')));
+
 module.exports = app;
