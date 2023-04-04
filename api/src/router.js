@@ -1,3 +1,4 @@
+const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 
@@ -26,7 +27,7 @@ const upload = multer({
     storage: storage
 })
 
-router.post('/upload', upload.single('photo'), ((request, response)=>{
+router.post('/upload', upload.single('photo'), (request, response)=>{
     if(request.fileValidationError) {
         response.status(400).json({
             error: request.fileValidationError
@@ -35,7 +36,7 @@ router.post('/upload', upload.single('photo'), ((request, response)=>{
     response.status(201).json({
         success: true
     })
-}))
+})
 
 
 module.exports = router ;
